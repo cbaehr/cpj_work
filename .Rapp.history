@@ -1,0 +1,479 @@
+test$uniqueid2s[3547]
+test[test$unique_id2s==test$unique_id2s[3547],]
+View(test[test$unique_id2s==test$unique_id2s[3547],])
+mean
+ls
+grep
+library(parallel)
+help(parApply)
+my.names <- as.vector(sapply(c("n_bids", "pct_comp_bids", "unit_cost", "unitCost_quantile"), FUN = function(x) paste0(x, "_comm", 1992:2017)))
+my.names
+my.names[!grepl(2014:2017, my.names)]
+paste0(2014:2017, collapse="|")
+my.names[!grepl(paste0(2014:2017, collapse="|"), my.names)]
+my.names <- as.vector(sapply(c("n_bids", "pct_comp_bids", "unit_cost", "unitCost_quantile"), FUN = function(x) paste0(x, "_comm", 1992:2017)))
+my.names
+gsub("_comm", "", my.names)
+library(parallel)
+detectCores()
+lat <- seq(from=102.3338282000000419, to=107.6276787999999698, by=0.0002695)#
+lon <- seq(from=9.9133563000000127, to=14.6902471000000254, by=0.0002695)#
+#
+my_data <- NULL#
+#
+count <- 0#
+#
+for(i in 1:length(lat)) {#
+  count <- count+1#
+  temp <- paste(lat[i], lon, sep=", ")#
+  my_data <- append(my_data, temp)#
+  if(i%%100==0) {cat(i, "of", length(lat), "\n")}#
+}
+length(my_data)
+length(lat)
+length(lon)
+length(lat)*length(lon)
+temp[1]
+temp[1:10]
+write.csv(my_data, "/Users/christianbaehr/Downloads/test.csv",row.names=F)
+library(sp)#
+library(sf)#
+library(raster)
+grid <- read.csv("/Users/christianbaehr/Box Sync/cambodia_eba_gie/inputData/ndvi/empty_grid.csv", #
+                 stringsAsFactors = F)#
+grid <- SpatialPointsDataFrame(coords=grid, data = grid)
+library(sp)#
+library(sf)#
+library(raster)#
+library(parallel)#
+library(snow)
+temp.grid <- matrix(data=NA, ncol=0, nrow=nrow(grid))
+dim(temp.grid)
+my.dir <- "/Users/christianbaehr/Box Sync/cambodia_eba_gie/inputData/ndvi/3km_ndvi"
+for(i in dir(my.dir)) {#
+  temp <- raster(paste0(my.dir, "/", i))#
+  beginCluster(n=detectCores())#
+  my.extract <- extract(x=raster, y=grid)#
+  endCluster()#
+  temp.grid <- cbind(temp.grid, my.extract)#
+  rm(temp)#
+  rm(my.extract)#
+}
+my.extract <- extract(x=raster, y=grid)
+rm(list=ls())
+grid <- read.csv("/Users/christianbaehr/Box Sync/cambodia_eba_gie/inputData/ndvi/empty_grid.csv", #
+                 stringsAsFactors = F)#
+grid <- SpatialPoints(coords=grid)#
+#
+my.dir <- "/Users/christianbaehr/Box Sync/cambodia_eba_gie/inputData/ndvi/3km_ndvi"#
+temp.grid <- matrix(data=NA, ncol=0, nrow=nrow(grid))
+dim(grid)
+length(grid)
+temp.grid <- matrix(data=NA, ncol=0, nrow=length(grid))
+for(i in dir(my.dir)) {#
+  temp <- raster(paste0(my.dir, "/", i))#
+  beginCluster(n=detectCores())#
+  my.extract <- extract(x=raster, y=grid)#
+  endCluster()#
+  temp.grid <- cbind(temp.grid, my.extract)#
+  rm(temp)#
+  rm(my.extract)#
+}
+library(sp)#
+library(sf)#
+library(raster)#
+library(parallel)#
+library(snow)#
+#
+grid <- read.csv("/Users/christianbaehr/Box Sync/cambodia_eba_gie/inputData/ndvi/empty_grid.csv", #
+                 stringsAsFactors = F)#
+# grid <- SpatialPoints(coords=grid)#
+#
+my.dir <- "/Users/christianbaehr/Box Sync/cambodia_eba_gie/inputData/ndvi/3km_ndvi"#
+temp.grid <- matrix(data=NA, ncol=0, nrow=nrow(grid))#
+for(i in dir(my.dir)) {#
+  temp <- raster(paste0(my.dir, "/", i))#
+  beginCluster(n=detectCores())#
+  my.extract <- extract(x=raster, y=grid)#
+  endCluster()#
+  temp.grid <- cbind(temp.grid, my.extract)#
+  rm(temp)#
+  rm(my.extract)#
+}
+class(grid)
+dim(grid)
+grid=as.matrix(grid)
+library(sp)#
+library(sf)#
+library(raster)#
+library(parallel)#
+library(snow)#
+#
+grid <- read.csv("/Users/christianbaehr/Box Sync/cambodia_eba_gie/inputData/ndvi/empty_grid.csv", #
+                 stringsAsFactors = F)#
+# grid <- SpatialPoints(coords=grid)#
+#
+my.dir <- "/Users/christianbaehr/Box Sync/cambodia_eba_gie/inputData/ndvi/3km_ndvi"#
+temp.grid <- matrix(data=NA, ncol=0, nrow=nrow(grid))#
+for(i in dir(my.dir)) {#
+  temp <- raster(paste0(my.dir, "/", i))#
+  beginCluster(n=detectCores())#
+  my.extract <- extract(x=raster, y=grid)#
+  endCluster()#
+  temp.grid <- cbind(temp.grid, my.extract)#
+  rm(temp)#
+  rm(my.extract)#
+}
+dim(grid)
+temp=grid[1:10,]
+temp
+rm(list=ls())
+library(sp)#
+library(sf)#
+library(raster)#
+library(parallel)#
+library(snow)#
+#
+grid <- read.csv("/Users/christianbaehr/Box Sync/cambodia_eba_gie/inputData/ndvi/empty_grid.csv", stringsAsFactors = F)#
+grid <- SpatialPoints(coords=grid)#
+#
+my.dir <- "/Users/christianbaehr/Box Sync/cambodia_eba_gie/inputData/ndvi/3km_ndvi"#
+#
+temp.grid <- matrix(data=NA, ncol=0, nrow=length(grid))#
+for(i in dir(my.dir)) {#
+  temp <- raster(paste0(my.dir, "/", i))#
+  beginCluster(n=detectCores())#
+  my.extract <- extract(x=temp, y=grid)#
+  endCluster()#
+  temp.grid <- cbind(temp.grid, my.extract)#
+  rm(temp)#
+  rm(my.extract)#
+}
+library(sp)#
+library(sf)#
+library(raster)#
+library(parallel)#
+library(snow)#
+#
+grid <- read.csv("/Users/christianbaehr/Box Sync/cambodia_eba_gie/inputData/ndvi/empty_grid.csv", stringsAsFactors = F)#
+grid <- SpatialPoints(coords=grid)#
+#
+my.dir <- "/Users/christianbaehr/Box Sync/cambodia_eba_gie/inputData/ndvi/3km_ndvi"#
+#
+temp.grid <- matrix(data=NA, ncol=0, nrow=length(grid))
+i=dir(my.dir)[1]
+temp <- raster(paste0(my.dir, "/", i))
+my.extract <- extract(x=temp, y=grid)
+library(doParallel)#
+library(ff)#
+library(foreach)#
+library(raster)#
+#
+grid.rows <- 88148313#
+#
+my.rasters <- list()#
+for(i in 1999:2018) {#
+  my.rasters[as.character(i)] <- raster(paste0("/Users/christianbaehr/Box Sync/cambodia_eba_gie/inputData/ndvi/3km_ndvi/ndvi_3km_", i, ".tif"))#
+}#
+#
+full.stack <- stack(my.rasters)#
+rm(my.rasters)#
+#
+####
+#
+cl <- makeCluster(detectCores()-1)#
+registerDoParallel(cl)#
+#
+foreach(i=1:grid.rows) %dopar% {#
+  library(raster)#
+  tempData <- read.csv("/Users/christianbaehr/Box Sync/cambodia_eba_gie/inputData/ndvi/empty_grid.csv",#
+                       skip = i-1,#
+                       nrows = 1)#
+  ndvi <- extract(full.stack, tempData)#
+  write.table(x=ndvi,#
+              file="/Users/christianbaehr/Box Sync/cambodia_eba_gie/inputData/ndvi/full_grid.csv",#
+              append=T,#
+              sep=",",#
+              qmethod = "double", #
+              col.names = F,#
+              row.names = T)#
+}
+library(doParallel)#
+library(ff)#
+library(foreach)#
+library(raster)#
+#
+grid.rows <- 88148313#
+#
+my.rasters <- list()#
+for(i in 1999:2018) {#
+  my.rasters[as.character(i)] <- raster(paste0("/Users/christianbaehr/Box Sync/cambodia_eba_gie/inputData/ndvi/3km_ndvi/ndvi_3km_", i, ".tif"))#
+}#
+#
+full.stack <- stack(my.rasters)#
+rm(my.rasters)#
+#
+####
+#
+cl <- makeCluster(detectCores())#
+registerDoParallel(cl)#
+#
+foreach(i=1:grid.rows) %dopar% {#
+  library(raster)#
+  tempData <- read.csv("/Users/christianbaehr/Box Sync/cambodia_eba_gie/inputData/ndvi/empty_grid.csv",#
+                       skip = i-1,#
+                       nrows = 1)#
+  ndvi <- extract(full.stack, tempData)#
+  write.table(x=ndvi,#
+              file="/Users/christianbaehr/Box Sync/cambodia_eba_gie/inputData/ndvi/full_grid.csv",#
+              append=T,#
+              sep=",",#
+              qmethod = "double", #
+              col.names = F,#
+              row.names = T)#
+}
+test=read.csv("/Users/christianbaehr/Desktop/full_grid.csv", stringsAsFactors=F)
+dim(test)
+test[1,3]
+mean(test[test[,3]!=-9999, 3])
+mean(test[test[,5]!=-9999, 5])
+mean(test[test[,10]!=-9999, 10])
+testa=read.csv("~/Desktop/full_grid.csv",stringsAsFactors=F)
+testa[1,]
+testb=read.csv("~/desktop/full_grids/full_grid_21701799-28326890.csv", stringsAsFactors=F)
+testb[nrow(testb),]
+testa[2,]
+detectCores()
+library(parallel)
+detectCores()
+test <- read.csv("/Users/christianbaehr/Downloads/plant_conces_data.csv", stringsAsFactors=F)
+dim(test)
+test=read.csv("~/Box Sync/MacArthur_Winter2019/ODCConcessions/merge_sea_grid.csv",stringsAsFactors=F)
+names(test)
+summary(test[,2])
+summary(test[,3])
+summary(test[,4])
+summary(test[,5])
+test=read.csv("~/Box Sync/MacArthur_Winter2019/GFWPlantation/merge_sea_grid.csv",stringsAsFactors=F)
+names(test)
+pid=read.csv("/Users/christianbaehr/Box Sync/cambodia_eba_gie/processeddata/pid.csv",stringsAsFactors=F)
+dim(pid)
+names(pid)
+sum(pid$village.code=="4040103")
+which(pid$village.code=="4040103")
+pid[pid$village.code=="4040103"]
+pid[pid$village.code=="4040103",]
+sum(pid$village.code=="4040101")
+pid[pid$village.code=="4040101",]
+sum(pid$village.code=="10040501")
+sum(pid$village.code=="3010803")
+sum(pid$village.code=="3010804")
+sqrt((3*sqrt(2))/pi)
+sqrt(2)
+1.4*1.4
+3*sqrt(2)
+2*sqrt(2)
+data(NTUSD)
+library(readxl)
+help(read_xlsx)
+library(sf)
+test=st_read("/Users/christianbaehr/Desktop/test/villages/villages.shp", stringsAsFactors=F)
+test2 = as.data.frame(test)
+dim(test2)
+names(test2)
+test2=test2[,c("VILL_CODE", "geometry")]
+test2
+class(test2)
+class(test2$geometry)
+as.numeric(test2$geomrtry)
+as.numeric(test2$geomtry)
+as.numeric(test2$geometry)
+as.numeric(test2$geometry[1])
+as.character(test2$geometry[1])
+cdb = read.csv("/USers/christianbaehr/desktop/test/cdb_merged_final.csv",stringsAsFactors=F)
+names(cdb)
+cdb2=cdb[, c("VillGis", "Year", "Baby_die_Midw")]
+dim(cdb2)
+dir()
+ls()
+data=merge(test2, cdb2, by.x="VILL_CODE", by.y="VillGis")
+data
+data2 = reshape(data, timevar="Year", idvar="VILL_CODE", direction="wide")
+data2
+names(data2)
+data2 = reshape(data, varying="Baby_die_Midw.2009", timevar="Year", idvar="VILL_CODE", direction="wide")
+data2 = reshape(data, varying=list("Baby_die_Midw.2009"), timevar="Year", idvar="VILL_CODE", direction="wide")
+data2 = reshape(data, varying=list(data$Baby_die_Midw), timevar="Year", idvar="VILL_CODE", direction="wide")
+data2 = reshape(data, varying=data$Baby_die_Midw, timevar="Year", idvar="VILL_CODE", direction="wide")
+help(reshape)
+data2 = reshape(data, varying="Baby_die_Midw", timevar="Year", idvar="VILL_CODE", direction="wide")
+help(reshape)
+names(data)
+data2 = reshape(data, v.names="Baby_die_Midw", timevar="Year", idvar="VILL_CODE", direction="wide")
+data2
+data2$longitude = sapply(data2$geometry, function(x) {strsplit(as.character(x), ",")})
+data2$longitude = sapply(data2$geometry, function(x) {unlist(strsplit(as.character(x), ","))[1]})
+data2$longitude
+data2$latitude = sapply(data2$geometry, function(x) {unlist(strsplit(as.character(x), ","))[2]})
+data2
+data2=data2[names(data2)!="geometry"]
+data2
+write.csv(data2, "/USers/christianbaehr/Desktop/test/village_data.csv",row.names=F)
+rm(list=ls())
+library(sf)
+test=st_read("/Users/christianbaehr/Desktop/cdb_points/VILL_CODE.shp", stringsAsFactors=F)
+str(test)
+test2=as.data.frame(test)
+test2=as.data.frame(test, stringsAsFactors=F)
+head(test2)
+test=read.csv("/Users/christianbaehr/Desktop/test/cdb_spatial.csv")
+dim(test)
+names(test)
+library(haven)
+data=read_sav("/Users/christianbaehr/Desktop/afdb_work/kenya_nhs/Owners_Individual data.sav")
+names(data)
+head(data)
+data2=as.data.frame(data)
+head(data2)
+unique(data2$CITY_TOWN)
+nrow(data2)
+data=read_sav("/Users/christianbaehr/Desktop/afdb_work/kenya_nhs/Owners_Household data.sav")
+data2=as.data.frame(data)
+nrow(data2)
+data=read_sav("/Users/christianbaehr/Desktop/afdb_work/dhs2014/KEBR70FL.sav")
+class(data)
+data2=as.data.frame(data)
+class(data2)
+head(data2)
+data=read_sav("/Users/christianbaehr/Desktop/afdb_work/dhs2014/KEBR70FL.sav")
+head(data)
+names(data)
+data$V000
+data$label
+data$V000
+data$V000[label]
+class(data)
+labels <- sapply(data, function(x) attr(x, "label"))
+labelks
+labels
+data=read_sav("/Users/christianbaehr/Desktop/afdb_work/dhs2014/KEPR70FL.sav")
+names(data)
+labels <- sapply(data, function(x) attr(x, "label"))
+labels
+data=read_sav("/Users/christianbaehr/Desktop/afdb_work/dhs2014/KEHR70FL.sav")
+labels <- sapply(data, function(x) attr(x, "label"))
+labels
+names(data)
+unique(data$HV025)
+2+2
+data=cars
+names(data)
+plot(data$speed, data$dist)
+names(data)
+test=read.csv("/Users/christianbaehr/Box Sync/cambodia_ndvi_eval/inputdata/cdb_merged_final.csv")
+names(test)
+unique(test$year)
+unique(test$Year)
+library(foreign)
+data = read.spss("/Users/christianbaehr/Downloads/NIGER_LEADER_SURVEY_31032017.SAV")
+head(data)
+names(data)
+data[1,]
+dim(data)
+data
+type(data)
+class(data)
+data = read.spss("/Users/christianbaehr/Downloads/NIGER_LEADER_SURVEY_31032017.SAV", to.data.frame=T)
+dim(data)
+data[1,]
+names(data)
+data[1,]
+class(data)
+write.csv(data, "/Users/christianbaehr/Desktop/temp.csv", row.names=F)
+attr(data, "variable.labels")
+labels <- as.data.frame(attr(data, "variable.labels"))
+write.csv(labels,"/USers/christianbaehr/Desktop/labels.csv",row.names=F)
+data=read.csv("/users/christianbaehr/desktop/temp.csv")
+labels=read.csv("/users/christianbaehr/desktop/labels.csv")
+dim(data)
+dim(labels)
+labels2=c(labels)
+labels2
+labels2=as.character(labels)
+labels2
+labels
+names(labels)
+labels2=as.character(labels[,1])
+labels2[1:5]
+dir()
+ls()
+data$labels=labels2
+dim(data)
+data[119,]=labels2
+warnings()
+data=apply(data,2,as.character)
+data[119,]=labels2
+write.csv(data, "/USers/christianbaehr/desktop/temp2.csv",row.names=F)
+install.packages("ssh")
+library(ssh)
+session <- ssh_connect("vvchoo@itpir-web-02.it.wm.edu")
+print(session)
+help(scp_upload)
+scp_upload(session, "/Users/christianbaehr/Desktop/build_panel.py", "/var/www/public/charts/downloads/build_panel2.py")
+x=list(1:20)
+x
+x[1]
+x[[1]]
+library(stringr)#
+#
+num_prod_pages=3#
+#
+setwd("/Users/christianbaehr/Github/cpj_work")#
+#
+for (i3 in 1:num_prod_pages) {#
+  system('./phantomjs-2.1.1-macosx/bin/phantomjs readhtml.js') # return html of current page via PhantomJS#
+  ### Use Rvest to scrape the downloaded website.#
+  html_filename <- paste0(as.character(i3), '.html') # file generated in PhantomJS readhtml.js#
+  web <- read_html(html_filename)#
+  content <- html_nodes(web, 'div.article-pricing') # %>% html_attr('href')#
+  content <- html_text(content) %>% as.data.frame()#
+  ### generate URL of next page#
+  url_i3 <- capture.output(system("./phantomjs-2.1.1-macosx/bin/phantomjs nextpage.js", intern = TRUE)) %>%#
+    .[length(.)] %>% # last line of output contains #
+    str_sub(str_locate(., 'http')[1], -2) # cut '[1] \' at start and ' \" ' at end#
+  # Adapt PhantomJS scripts to new url#
+  lines <- readLines("readhtml.js")#
+  lines[2] <- paste0("var url ='", url_i3 ,"';")#
+  lines[11] <- paste0("              fs.write('", as.character(i3), ".html', page.content, 'w');")#
+  writeLines(lines, "readhtml.js")#
+  lines <- readLines("nextpage.js")#
+  lines[2] <- paste0("var url ='", url_i3 ,"';")#
+  writeLines(lines, "nextpage.js")#
+}
+library(stringr)#
+library(rvest)#
+#
+num_prod_pages=3#
+#
+setwd("/Users/christianbaehr/Github/cpj_work")#
+#
+for (i3 in 1:num_prod_pages) {#
+  system('./phantomjs-2.1.1-macosx/bin/phantomjs readhtml.js') # return html of current page via PhantomJS#
+  ### Use Rvest to scrape the downloaded website.#
+  html_filename <- paste0(as.character(i3), '.html') # file generated in PhantomJS readhtml.js#
+  web <- read_html(html_filename)#
+  content <- html_nodes(web, 'div.article-pricing') # %>% html_attr('href')#
+  content <- html_text(content) %>% as.data.frame()#
+  ### generate URL of next page#
+  url_i3 <- capture.output(system("./phantomjs-2.1.1-macosx/bin/phantomjs nextpage.js", intern = TRUE)) %>%#
+    .[length(.)] %>% # last line of output contains #
+    str_sub(str_locate(., 'http')[1], -2) # cut '[1] \' at start and ' \" ' at end#
+  # Adapt PhantomJS scripts to new url#
+  lines <- readLines("readhtml.js")#
+  lines[2] <- paste0("var url ='", url_i3 ,"';")#
+  lines[11] <- paste0("              fs.write('", as.character(i3), ".html', page.content, 'w');")#
+  writeLines(lines, "readhtml.js")#
+  lines <- readLines("nextpage.js")#
+  lines[2] <- paste0("var url ='", url_i3 ,"';")#
+  writeLines(lines, "nextpage.js")#
+}
